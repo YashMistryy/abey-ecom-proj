@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import loginSignUpGif from '../assets/login-animation.gif'
 import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
-import { FlashAuto, Password } from '@mui/icons-material';
 import { Link } from "react-router-dom";
 
 
@@ -29,13 +28,21 @@ const Signup = () => {
             })
         })
     }
-    const handleSignnupSubmit= (e)=>{
+    const handleSignnupSubmit= async(e)=>{
         e.preventDefault()
         const {firstName,lastName,email,password} = formData
         if(firstName && lastName && email && password){
             const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
             if(passwordPattern.test(password)){
-                alert("Signup successfully!")
+                // alert("Signup successfully!")
+                // here make post request to backend
+                console.log(formData)
+                const res = await fetch('http://127.0.0.1:8000/api/users/register/',{
+                    method :'POST',
+                    headers : {"content-type":'application/json'},
+                    body:JSON.stringify(formData)
+                })
+                console.log({"res":res.text})
             }else{
                 alert("Password dont match with required parameters!!!")
             }
