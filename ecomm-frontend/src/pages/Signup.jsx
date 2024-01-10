@@ -43,6 +43,7 @@ const Signup = () => {
             alert("Enter all required fields !!!")
         }
     }
+    console.log(process.env.REACT_APP_API_URL)
     return (
      <div className='p-2 md:p-4'>
         <div className='w-full max-w-sm bg-white m-auto flex  items-center flex-col p-4'>
