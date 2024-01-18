@@ -53,7 +53,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 AUTH_USER_MODEL = 'users.CustomUser'
 
 REST_FRAMEWORK = {
@@ -157,3 +164,5 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     # Add other allowed domains as needed
 ]
+CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOWED_ORIGINS = ['*']

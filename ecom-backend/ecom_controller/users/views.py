@@ -15,6 +15,6 @@ class RegisterUserView(APIView):
         if reg_serializer.is_valid():
             new_user = reg_serializer.save()
             if new_user:
-                return Response(status = status.HTTP_201_CREATED )
+                return Response(status = status.HTTP_201_CREATED ,data={'msg':'user created successfully!'})
         return Response(status=status.HTTP_406_NOT_ACCEPTABLE,data=reg_serializer.errors)
         
